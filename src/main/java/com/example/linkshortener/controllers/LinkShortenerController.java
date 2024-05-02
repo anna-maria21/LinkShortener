@@ -30,9 +30,7 @@ public class LinkShortenerController {
 
     @GetMapping("/{encodedLink}")
     public void redirect(@PathVariable String encodedLink, HttpServletResponse response) throws IOException {
-        String link = service.redirectUser(encodedLink);
-        System.out.println(link);
-        response.sendRedirect(link);
+        response.sendRedirect(service.redirectUser(encodedLink));
     }
 
 }
