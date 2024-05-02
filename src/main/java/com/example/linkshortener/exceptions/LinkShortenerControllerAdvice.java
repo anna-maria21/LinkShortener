@@ -13,4 +13,10 @@ public class LinkShortenerControllerAdvice {
     ApiError hashUrlException(HashingUrlException ex) {
         return new ApiError(ex.getMessage());
     }
+
+    @ExceptionHandler(WrongUrlException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    ApiError wrongUrlException(WrongUrlException ex) {
+        return new ApiError(ex.getMessage());
+    }
 }
